@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شاحن Samsung 45W</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f5f5f5;
+text-align:center;
+margin:0;
+}
+
+.container{
+background:white;
+max-width:500px;
+margin:auto;
+padding:20px;
+border-radius:10px;
+}
+
+.price-old{
+text-decoration:line-through;
+color:gray;
+}
+
+.price{
+font-size:30px;
+color:red;
+font-weight:bold;
+}
+
+button{
+background:#28a745;
+color:white;
+border:none;
+padding:15px;
+width:100%;
+font-size:18px;
+border-radius:8px;
+}
+
+input{
+width:90%;
+padding:12px;
+margin:10px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>⚡ شاحن Samsung 45W الأصلي</h2>
+
+<img src="charger.jpg" width="100%" loading="lazy">
+
+<p class="price-old">149 درهم</p>
+
+<p class="price">120 درهم</p>
+
+<p>🚚 توصيل سريع لجميع المدن</p>
+
+<h3>اطلب الآن</h3>
+<form id="orderForm">
+
+<input name="name" placeholder="الاسم الكامل" required>
+
+<input name="phone" placeholder="رقم الهاتف" required>
+
+<input name="city" placeholder="المدينة" required>
+
+<button type="submit">تأكيد الطلب</button>
+
+</form>
+
+<p id="msg" style="display:none;color:green;font-size:22px;">
+✅ تم تسجيل طلبك بنجاح  
+سيتم التواصل معك قريبا
+</p>
+
+<script>
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbyyeArC26zm7LrvCA5iKvoo4Rgjv6QMiswuirDkaAPJv3EDFcF0UCSTBT_VGJJ0BkF3/exec"
+
+const form = document.getElementById('orderForm')
+const msg = document.getElementById("msg")
+
+form.addEventListener('submit', e => {
+
+e.preventDefault()
+
+// إظهار الرسالة مباشرة
+form.style.display="none"
+msg.style.display="block"
+
+// إرسال الطلب في الخلفية
+fetch(scriptURL,{
+method:'POST',
+body:new FormData(form)
+})
+
+})
+
+</script>
+
+</div>
+
+</body>
+</html>
